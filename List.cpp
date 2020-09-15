@@ -65,7 +65,7 @@ List::~List() {
 		tmp = head;
 		head = head->next;
 		delete tmp;
-		cout <<"Nodo borrado"<<endl;
+		cout <<"A node was deleted."<<endl;
 	}
 }
 
