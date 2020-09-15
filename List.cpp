@@ -14,11 +14,7 @@ List::List() {
 }
 
 bool List::isEmpty(){
-	if (head == NULL){
-		return true;
-	}else{
-		return false;
-	}
+	return head == NULL;
 }
 
 void List::addNode(int data){
@@ -31,12 +27,12 @@ void List::addNode(int data){
 
 void List::deleteNode(int data){
 	Node * tmp2 = head;
-	Node * tmp = tmp2;
 	if (tmp2 != NULL){
 		if (tmp2->data == data){
 			head = tmp2->next;
 			delete tmp2;
 		}else{
+			Node * tmp = tmp2;
 			while(tmp2 != NULL){
 				if (tmp2->data == data){
 					tmp->next = tmp2->next;
