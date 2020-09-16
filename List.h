@@ -5,28 +5,23 @@
  *      Author: Usuario
  */
 
-#ifndef LIST_H_
-#define LIST_H_
+#pragma once
 
-#include <iostream>
-using namespace std;
-
-struct Node {
+struct Node
+{
 	int data;
 	Node * next;
 };
 
-class List {
-private:
-	Node * head;
+class List
+{
+	Node * head = nullptr;
+
 public:
-	List();
+
 	virtual ~List();
 	bool isEmpty();
 	void addNode(int data);
 	void deleteNode(int data);
 	void displayList();
-
 };
-
-#endif /* LIST_H_ */
