@@ -47,7 +47,7 @@ void DoubleList::deleteNode(int data)
 	if (!isEmpty())
 	{
 		Node * tmp = head;
-		if (head->next == nullptr)
+		if ((!head->next) && (head->data == data))
 		{
 			delete tmp;
 			head = nullptr;
