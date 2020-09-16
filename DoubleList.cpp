@@ -10,6 +10,18 @@ bool DoubleList::isEmpty()
 	return !head;
 }
 
+int DoubleList::getLength()
+{
+	int length = 0;
+	Node * tmp = head;
+	while(tmp)
+	{
+		length++;
+		tmp = tmp->next;
+	}
+	return length;
+}
+
 void DoubleList::addNode(int data)
 {
 	Node * tmp = new Node();
@@ -59,7 +71,7 @@ void DoubleList::deleteNode(int data)
 			else
 			{
 				tmp2 = head;
-				while (tmp2 != nullptr)
+				while (tmp2)
 				{
 					if (tmp2->data == data)
 					{
@@ -78,10 +90,51 @@ void DoubleList::deleteNode(int data)
 	}
 }
 
+
+void DoubleList::addNodeAfter(int data)
+{
+	Node * tmp = new Node();
+	tmp->data = data;
+	if (isEmpty())
+	{
+		tmp->prev = nullptr;
+		head = tmp;
+	}
+	else
+	{
+		tail->next = tmp;
+		tmp->prev = tail;
+	}
+	tail = tmp;
+	tmp->next = nullptr;
+}
+void DoubleList::addNodeBefore(int data)
+{
+	Node * tmp = new Node();
+	tmp->data = data;
+	if (isEmpty())
+	{
+		tmp->next = nullptr;
+		tail = tmp;
+	}
+	else
+	{
+		head->prev = tmp;
+		tmp ->next = head;
+		tmp->prev = nullptr;
+
+	}
+	tmp->prev = nullptr;
+	head = tmp;
+}
+void DoubleList::addNodeRandom(int data)
+{
+
+}
 void DoubleList::displayList()
 {
 	Node * tmp = tail;
-	while(tmp != nullptr)
+	while(tmp)
 	{
 		cout <<tmp->data<<endl;
 		tmp = tmp->prev;
@@ -106,3 +159,4 @@ DoubleList::~DoubleList()
 	delete tmp2;
 	delete head;
 }
+
