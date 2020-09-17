@@ -1,26 +1,17 @@
-/*
- * List.h
- *
- *  Created on: 15 sept. 2020
- *      Author: Usuario
- */
+#pragma once
 
-#ifndef LIST_H_
-#define LIST_H_
+struct Node
 
-#include <iostream>
-using namespace std;
-
-struct Node {
+{
 	int data;
 	Node * next;
 };
 
-class List {
-private:
-	Node * head;
+class List
+
+{
+	Node * head = nullptr;
 public:
-	List();
 	virtual ~List();
 	bool isEmpty();
 	void addNode(int data);
@@ -29,4 +20,3 @@ public:
 
 };
 
-#endif /* LIST_H_ */
