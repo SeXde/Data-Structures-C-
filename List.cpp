@@ -1,20 +1,10 @@
-/*
- * List.cpp
- *
- *  Created on: 15 sept. 2020
- *      Author: Usuario
- */
- 
-#include <iostream>
-using namespace std;
 #include "List.h"
+#include <iostream>
 
-List::List() {
-	head = NULL;
-}
+
 
 bool List::isEmpty(){
-	return head == NULL;
+	return !head;
 }
 
 void List::addNode(int data){
@@ -27,13 +17,13 @@ void List::addNode(int data){
 
 void List::deleteNode(int data){
 	Node * tmp2 = head;
-	if (tmp2 != NULL){
+	if (tmp2){
 		if (tmp2->data == data){
 			head = tmp2->next;
 			delete tmp2;
 		}else{
 			Node * tmp = tmp2;
-			while(tmp2 != NULL){
+			while(tmp2){
 				if (tmp2->data == data){
 					tmp->next = tmp2->next;
 					delete tmp2;
@@ -49,8 +39,8 @@ void List::deleteNode(int data){
 
 void List::displayList(){
 	Node * tmp = head;
-	while (tmp != NULL){
-		cout <<tmp->data<<endl;
+	while (tmp){
+		std::cout <<tmp->data<<std::endl;
 		tmp = tmp->next;
 	}
 }
@@ -61,7 +51,6 @@ List::~List() {
 		tmp = head;
 		head = head->next;
 		delete tmp;
-		cout <<"A node was deleted."<<endl;
+		std::cout <<"A node was deleted."<<std::endl;
 	}
 }
-
