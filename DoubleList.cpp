@@ -2,7 +2,6 @@
 #include "DoubleList.h"
 #include <iostream>
 
-using namespace std;
 
 
 bool DoubleList::isEmpty()
@@ -136,7 +135,7 @@ void DoubleList::displayList()
 	Node * tmp = tail;
 	while(tmp)
 	{
-		cout <<tmp->data<<endl;
+		std::cout <<tmp->data<<std::endl;
 		tmp = tmp->prev;
 	}
 }
@@ -159,4 +158,3 @@ DoubleList::~DoubleList()
 	delete tmp2;
 	delete head;
 }
-
