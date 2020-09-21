@@ -1,4 +1,5 @@
 
+
 #include "DoubleList.h"
 #include <iostream>
 #include <stdlib.h>
@@ -132,28 +133,26 @@ void DoubleList::addNodeBefore(int data)
 void DoubleList::addNodeRandom(int data)
 {
 	srand(time(nullptr));
-	int listLength = getLength();
-	int randNumber = rand() % (listLength +1);
+	int randNumber = rand() % (getLength() +1);
 	if (randNumber == 0)
 	{
 		addNodeBefore(data);
 	}
-	else if (randNumber == 4)
+	else if (randNumber == getLength())
 	{
 		addNodeAfter(data);
 	}
 	else
 	{
 		Node * tmp = head;
-		for (int i = 0;i==randNumber;i++)
-		{
-			tmp = tmp->next;
-		}
-		Node * tmp2 = new Node();
+		for (int i = 1;i<randNumber;i++) tmp = tmp->next;
+		Node * tmp2 = new Node;
 		tmp2->data = data;
+		tmp2->prev = tmp;
 		tmp2->next = tmp->next;
 		tmp->next = tmp2;
-		tmp2->prev = tmp;
+		tmp2->next->prev = tmp2;
+
 
 	}
 
